@@ -79,4 +79,4 @@ def verify(N, e, d)->bool:
         print("Key invalid")
         return False
 
-print(generate_key_pair(3))
+print(generate_key_pair(input()))
