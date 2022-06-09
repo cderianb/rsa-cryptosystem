@@ -3,6 +3,7 @@ import os
 import random
 
 from scipy import rand
+from sympy import re
 import PrimalityTester.FermatLittleTheorem as otd
 import lib.ModInverse as mi
 from dotenv import load_dotenv
@@ -22,23 +23,27 @@ def random_prime(bit:int=8)->int:
 
 def validate_public_key(e:int, T:int) -> bool:
     #Public key must fulfill these following condition
-    #Must Prime
-    if not is_prime(e):
-        raise f"{e} is not a prime number"
     
     #Must less than T
     if e >= T:
-        print(f"e is greater or equal than T")
+        print(f"{e} >= {T}")
         return False
 
     #Must not factor of T
     if T % e == 0:
-        print(f"T % e == 0")
+        print(f"{T} % {e} == {T % e}")
         return False
     
     return True
 
 def generate_key_pair(e:int, P:int=1, Q:int=1):
+    # The totient always be divisible by 2
+    if e == 2:
+        return f"public key must greater than 2 and prime"
+    #Must Prime
+    if not is_prime(e):
+        return f"{e} is not a prime number"
+
     T = 0
     while P==Q or not validate_public_key(e, T):
         P, Q, T = 1, 1, 0
@@ -79,4 +84,4 @@ def verify(N, e, d)->bool:
         print("Key invalid")
         return False
 
-print(generate_key_pair(input()))
+print(generate_key_pair(int(input())))
