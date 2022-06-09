@@ -37,8 +37,8 @@ def decrypt(cipher_text:str)->str:
     
     return ''.join(plain_char)
 
-chiperrr = encrypt(input())
-print(f"chiper = {chiperrr}")
+chiper = encrypt(input())
+print(f"chiper = {chiper}")
 
-plain = decrypt(chiperrr)
+plain = decrypt(chiper)
 print(f"plain = {plain}")

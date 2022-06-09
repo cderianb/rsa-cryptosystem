@@ -62,7 +62,7 @@ def generate_key_pair(e:int, P:int=1, Q:int=1):
     
     return (N, e), d
 
-def verify(N, e, d):
+def verify(N, e, d)->bool:
     plain = random.getrandbits(INT_LENGTH)
     print(f"plain = {plain}")
 
