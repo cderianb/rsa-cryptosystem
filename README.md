@@ -19,4 +19,4 @@
   </ol>
 <h2>Encryption.py</h2>
   <p>the value of cipher must be 1 < cipher < N </p>
-  <p>due to pc's low spec, the algorithm only tested until 3 long (24bit) of char</p>
+  <p>due to machine's performance, the algorithm only tested until 3 long (24bit) char</p>
